@@ -14,18 +14,18 @@ Install
 
 .. code-block:: bash
 
-   $ go get -d github.com/Yoshiki Shibukawa/got
+   $ go get -d github.com/shibukawa/got
 
 Contribution
 --------------
 
-1. Fork ([https://github.com/Yoshiki Shibukawa/got/fork](https://github.com/shibukawa/got/fork))
-1. Create a feature branch
-1. Commit your changes
-1. Rebase your local changes against the master branch
-1. Run test suite with the `go test ./...` command and confirm that it passes
-1. Run `gofmt -s`
-1. Create a new Pull Request
+1. Fork (https://github.com/shibukawa/got/fork)
+2. Create a feature branch
+3. Commit your changes
+4. Rebase your local changes against the master branch
+5. Run test suite with the ``go test ./...`` command and confirm that it passes
+6. Run ``gofmt -s``
+7. Create a new Pull Request
 
 Author
 --------------
@@ -46,6 +46,6 @@ License
 
 It copies some code, comment from original `git <https://git-scm.com/>`_ command. So it is licensed same license GPLv2.
 
-Git related algorithms are implemented in `git4go <https://github.com/shibukawa/git4go>`_, it provides `libgit2 <https://libgit2.github.com/>`_ compatible library written in golang.
-I copied some structure code from libgit2. So git4go is provided under GPLv2 with linking exception like libgit2.
+Git related algorithms are implemented in `git4go <https://github.com/shibukawa/git4go>`_, it provides `git2go <https://github.com/libgit2/git2go/>`_ compatible library written in golang.
+It is translated from libgit2. So git4go is provided under GPLv2 with linking exception like libgit2.
 
