@@ -1,9 +1,8 @@
 package main
 
 import (
-	"os"
-
 	"github.com/codegangsta/cli"
+	"os"
 )
 
 func main() {
@@ -18,6 +17,7 @@ func main() {
 	app.Flags = GlobalFlags
 	app.Commands = Commands
 	app.CommandNotFound = CommandNotFound
+	app.EnableBashCompletion = true
 
 	app.Run(os.Args)
 }

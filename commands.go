@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"github.com/codegangsta/cli"
 	"github.com/shibukawa/got/command"
+	"os"
 )
 
 var GlobalFlags = []cli.Flag{}
@@ -35,28 +35,28 @@ var Commands = []cli.Command{
 		Flags:       []cli.Flag{},
 	},*/
 	{
-		Name:        "cat-file",
-		Usage:       "Provide content or type and size information for repository objects",
+		Name:  "cat-file",
+		Usage: "Provide content or type and size information for repository objects",
 		Description: `In its first form, the command provides the content or the type of an object in the repository. The type is required unless -t or -p is used to find the object type, or -s is used to find the
    object size, or --textconv is used (which implies type "blob").
 
    In the second form, a list of objects (separated by linefeeds) is provided on stdin, and the SHA-1, type, and size of each object is printed on stdout.`,
-		Action:      command.CmdCatFile,
-		Flags:       []cli.Flag{
+		Action: command.CmdCatFile,
+		Flags: []cli.Flag{
 			cli.BoolFlag{
-				Name: "t",
+				Name:  "t",
 				Usage: "Instead of the content, show the object type identified by <object>.",
 			},
 			cli.BoolFlag{
-				Name: "s",
+				Name:  "s",
 				Usage: "Instead of the content, show the object size identified by <object>.",
 			},
 			cli.BoolFlag{
-				Name: "e",
+				Name:  "e",
 				Usage: "Suppress all output; instead exit with zero status if <object> exists and is a valid object.",
 			},
 			cli.BoolFlag{
-				Name: "p",
+				Name:  "p",
 				Usage: "Pretty-print the contents of <object> based on its type.",
 			},
 		},
@@ -104,14 +104,14 @@ var Commands = []cli.Command{
 		Action:      command.CmdInit,
 		Flags:       []cli.Flag{},
 	},
-    
+
 	{
 		Name:        "log",
 		Usage:       "",
 		Action:      command.CmdLog,
 		Flags:       []cli.Flag{},
 	},
-    
+
 	{
 		Name:        "merge",
 		Usage:       "",
@@ -165,34 +165,34 @@ var Commands = []cli.Command{
 		Usage:       "",
 		Action:      command.CmdStatus,
 		Flags:       []cli.Flag{},
-	},
+	},*/
 	{
-		Name:        "tag",
-		Usage:       "",
-		Action:      command.CmdTag,
-		Flags:       []cli.Flag{},
+		Name:   "tag",
+		Usage:  "Create, list, delete or verify a tag object signed with GPG",
+		Action: command.CmdTag,
+		Flags:  []cli.Flag{},
 	},
-	{
+	/*{
 		Name:        "config",
 		Usage:       "",
 		Action:      command.CmdConfig,
 		Flags:       []cli.Flag{},
 	},
-    
+
 	{
 		Name:        "fetch",
 		Usage:       "",
 		Action:      command.CmdFetch,
 		Flags:       []cli.Flag{},
 	},
-    
+
 	{
 		Name:        "submodule",
 		Usage:       "",
 		Action:      command.CmdSubmodule,
 		Flags:       []cli.Flag{},
 	},
-    
+
 	{
 		Name:        "stash",
 		Usage:       "",
@@ -206,10 +206,10 @@ var Commands = []cli.Command{
 		Flags:       []cli.Flag{},
 	},*/
 	{
-		Name:        "ls-tree",
-		Usage:       "List the contents of a tree object",
-		Action:      command.CmdLsTree,
-		Flags:       []cli.Flag{},
+		Name:   "ls-tree",
+		Usage:  "List the contents of a tree object",
+		Action: command.CmdLsTree,
+		Flags:  []cli.Flag{},
 	},
 }
 

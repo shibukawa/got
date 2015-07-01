@@ -1,9 +1,9 @@
 package command
 
 import (
+	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/shibukawa/git4go"
-	"fmt"
 	"os"
 )
 
@@ -45,6 +45,14 @@ func CmdCatFile(c *cli.Context) {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
+		if obj.Type == git4go.ObjectCommit && objType == git4go.ObjectTree {
+			commit, _ := repo.LookupCommit(oid)
+			obj, err = odb.Read(commit.TreeId())
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			}
+		}
 		if obj.Type != objType {
 			fmt.Fprintf(os.Stderr, "fatal: got cat-file: %s: bad file\n", c.Args()[1])
 			os.Exit(1)
@@ -54,6 +62,7 @@ func CmdCatFile(c *cli.Context) {
 }
 
 func CompletionCatFile(c *cli.Context) {
+	fmt.Println("bash completeion cat-file")
 	types := []string{
 		"blob",
 		"commit",

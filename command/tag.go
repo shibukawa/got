@@ -1,7 +1,27 @@
 package command
 
-import "github.com/codegangsta/cli"
+import (
+	"fmt"
+	"github.com/codegangsta/cli"
+	"github.com/shibukawa/git4go"
+	"os"
+)
 
 func CmdTag(c *cli.Context) {
-	// Write your code here
+	repo, err := git4go.OpenRepositoryExtended(".")
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	switch len(c.Args()) {
+	case 0:
+		tags, err := repo.ListTag()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		for _, tag := range tags {
+			fmt.Println(tag)
+		}
+	}
 }
